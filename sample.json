@@ -1,7 +1,3 @@
-The URL for the POST request is: https://svg-api.stepcharts.io/svg
-
-Sample Data (raw JSON for the body of the request):
-```json
 {
   "type": "snapshot",
   "snapshot": {
@@ -94,33 +90,3 @@ Sample Data (raw JSON for the body of the request):
     ]
   }
 }
-```
-
-Here are trimmed down TS interfaces for your initial use (the API supports many more parameters, but I think this is a good sample to start with):
-
-```javascript
-export interface RequestBody {
-    type: 'snapshot';
-    snapshot: Snapshot;
-}
-export interface Snapshot {
-  actors?: ActorSnapshot[];
-  ownershipRecords?: OwnershipSnapshot[];
-}
-export interface ActorSnapshot {
-  type: 'Person' | 'Company' | 'Partnership' | 'Trust',
-  id: string;
-  name: string;
-  legalStatuses?: {
-    label: string;
-    jurisdictionCode: string;
-  }[];
-}
-export interface OwnershipSnapshot {
-    ownerId: string;
-    ownerName: string;
-    propertyId: string;
-    amount: number;
-    unit: string;
-}
-```
